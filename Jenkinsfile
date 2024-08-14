@@ -43,10 +43,11 @@ pipeline{
     }
 }
 
-        stage('port expose'){
-            steps{
-                sh 'docker run -dt -p 8091:8091 --name c000 anjanaviswa/project_bankingandfinance:v1'
-            }
-        }   
+
+         stage('Deployment stage using Ansible'){
+             steps{
+                 ansiblePlaybook become: true, becomeUser: null, credentialsId: 'ansible', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'ansible-playbook.yml', sudoUser: null, vaultTmpPath: ''
+             }
+         }        
     }
 }
