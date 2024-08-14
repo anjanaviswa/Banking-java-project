@@ -30,7 +30,7 @@ pipeline{
         }
         stage('run dockerfile'){
           steps{
-               sh 'docker build -t myimg .'
+               sh 'docker build -t anjanaviswa/project_bankingandfinance:v1 .'
            }
          }
 
@@ -45,7 +45,7 @@ pipeline{
 
         stage('port expose'){
             steps{
-                sh 'docker run -dt -p 8091:8091 --name c000 myimg'
+                sh 'docker run -dt -p 8091:8091 --name c000 anjanaviswa/project_bankingandfinance:v1'
             }
         }   
     }
