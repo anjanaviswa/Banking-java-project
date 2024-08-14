@@ -33,6 +33,16 @@ pipeline{
                sh 'docker build -t myimg .'
            }
          }
+
+        stage('Login to docker hub and push the file'){
+          steps{
+              withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpass')]) {
+                  sh 'docker login -u anjanaviswa -p ${dockerhubpass}'
+                  sh 'docker push anjanaviswa/project_bankingandfinance:v1'
+        }
+    }
+}
+
         stage('port expose'){
             steps{
                 sh 'docker run -dt -p 8091:8091 --name c000 myimg'
