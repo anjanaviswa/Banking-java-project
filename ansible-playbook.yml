@@ -13,8 +13,8 @@
     command : sudo systemctl start docker
 
 
-    - name: Deploy Docker Container
-      command: docker run -itd -p 8091:8091 anjanaviswa/project_bankingandfinance:v1
+   - name: Deploy Docker Container
+     command: docker run -itd -p 8091:8091 anjanaviswa/project_bankingandfinance:v1
 
 
 
