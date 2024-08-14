@@ -14,7 +14,7 @@
 
 
     - name: Deploy Docker Container
-      command: docker run -itd -p 8084:8081 anjanaviswa/project_bankingandfinance:v1
+      command: docker run -itd -p 8091:8091 anjanaviswa/project_bankingandfinance:v1
 
 
 
