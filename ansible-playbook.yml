@@ -3,17 +3,16 @@
   become: true
   connection : ssh
   tasks : 
-- name: updating apt
+  - name: updating apt
     command : sudo apt-get update
 
-- name : Install Docker
+  - name : Install Docker
     command : sudo apt-get install -y docker.io
 
-- name : Start Docker Service
+  - name : Start Docker Service
     command : sudo systemctl start docker
-
-
-- name: Deploy Docker Container
+    
+  - name: Deploy Docker Container
     command: docker run -itd -p 8091:8091 anjanaviswa/project_bankingandfinance:v1
 
 
